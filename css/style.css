@@ -681,23 +681,17 @@ img {
 .backdrop {
   position: fixed;
   top: 0;
+  left: 50%;
 
   width: 1600px;
   height: 1024px;
 
   background-color: rgba(0, 0, 0, 0.2);
 
-  transform: scale(1);
+  transform: translate(-50%, 0) scale(1);
   opacity: 1;
   transition: opacity 250ms var(--timing-function),
     transform 250ms var(--timing-function);
-}
-
-.backdrop.is-hidden .modal {
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.9);
-  transition: transform 250ms var(--timing-function),
-    opacity 250ms var(--timing-function);
 }
 
 .backdrop.is-hidden {
@@ -706,21 +700,24 @@ img {
   visibility: hidden;
 }
 
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
+  }
+
 .modal {
   display: block;
   position: absolute;
-  top: 50%;
-  left: 50%;
-
   width: 528px;
   height: 581px;
-
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+    
   background-color: var(--primary-bg-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-
-  transform: translate(-50%, -50%) scale(1);
+  
   transition: transform 250ms var(--timing-function);
 }
 
